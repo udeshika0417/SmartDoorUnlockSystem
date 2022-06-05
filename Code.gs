@@ -1,7 +1,5 @@
 function doGet() {
-  return HtmlService.createHtmlOutputFromFile("Landing");
    
-
 }
 
 function userClicked(email){
