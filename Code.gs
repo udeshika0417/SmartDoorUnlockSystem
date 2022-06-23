@@ -1,5 +1,5 @@
 function doGet() {
-  return HtmlService.createHtmlOutputFromFile("adminPage");
+  return HtmlService.createHtmlOutputFromFile("userHistoryPage");
    
 }
 //contact message send to the google sheet
@@ -22,4 +22,26 @@ function unlockLog(user) {
 
 }
 
+function onEdit(e) {
+  SpreadsheetApp.getUi().alert("User Email is " + getUserEmail());
+}
+
+function getUserEmail() {
+  var userEmail = PropertiesService.getUserProperties().getProperty("userEmail");
+  if(!userEmail) {
+    var protection = SpreadsheetApp.getActive().getRange("A1").protect();
+    // tric: the owner and user can not be removed
+    protection.removeEditors(protection.getEditors());
+    var editors = protection.getEditors();
+    if(editors.length === 2) {
+      var owner = SpreadsheetApp.getActive().getOwner();
+      editors.splice(editors.indexOf(owner),1); // remove owner, take the user
+    }
+    userEmail = editors[0];
+    protection.remove();
+    // saving for better performance next run
+    PropertiesService.getUserProperties().setProperty("userEmail",userEmail);
+  }
+  return userEmail;
+}
 
