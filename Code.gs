@@ -65,6 +65,7 @@ function getUserEmail() {
 //Logging Unlock Data To spreadsheet
   function unlockLog(user) {
     try {
+      var user = Session.getActiveUser().getEmail();
   var url= "https://docs.google.com/spreadsheets/d/1QhnLhOIsIwdAbYL-CvjXbW-nEKg5iu30ZnMSQHR7l28/edit#gid=0";
     var ss = SpreadsheetApp.openByUrl(url);
     var ws = ss.getSheetByName("unlockHistory");
