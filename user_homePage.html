@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <base target="_top">
+    <title>Example</title>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="style.css">
+    <!-- font awesome cdnjs link -->
+<style>
+  
+body 
+    {
+          background-color: hsl(89, 21%, 52%);
+    }
+        
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #202025;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+
+.active {
+  background-color: #393f42;
+}
+body {background-color: #F8F8FF;}
+
+.Nav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+.vertical-center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 45%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.button {
+  height: 200px;
+  width: 200px;
+  border-radius: 100px;
+ }
+ .button:hover {background-color: #262926}
+
+        </style>
+        
+</head>
+<body>
+   
+    
+   <!-- <div class="Nav">
+      <div>
+        <img src="https://drive.google.com/drive/folders/1quYWxf_V07EF0dqkhTifX1XBCV_5Yms1"width="80" height="80">
+      </div>
+      <div>
+        <ul>
+        <li><a class="active" href="#home">Home</a></li>
+        <li><a href="#news">News</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#about">About</a></li>
+      </ul> 
+      </div>
+    </div> -->
+
+<div class="w3-top">
+  <div class="w3-row w3-large w3-light-grey">
+    <div class="w3-col s3">
+      <a href="#" class="w3-button w3-block">Home</a>
+    </div>
+    <div class="w3-col s3">
+      <a href="#plans" class="w3-button w3-block">Profile</a>
+    </div>
+    <div class="w3-col s3">
+      <a href="#about" class="w3-button w3-block">About</a>
+    </div>
+    <div class="w3-col s3">
+      <a href="#contact" class="w3-button w3-block">Contact</a>
+    </div>
+  </div>
+</div>
+         <div>
+            <div class="vertical-center"  >
+                <button id="unlock-btn">UNLOCK</button>
+              </div>  
+         </div> 
+         
+</body>
+<script>
+    function handleClick(){
+      google.script.run.unlockLog(Session.getActiveUser().getEmail())
+    }
+  var btn = document.getElementById("unlock-btn");
+  btn.addEventListener("click", handleClick )
+</script>
+</html>
+
+
