@@ -1,3 +1,3 @@
 function doGet() {
-return HtmlService.createHtmlOutputFromFile("admin_homePage");
+return HtmlService.createHtmlOutputFromFile("admin_userHistoryPage");
 }
