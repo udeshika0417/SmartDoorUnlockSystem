@@ -14,11 +14,35 @@ html,body,h1,h2,h3,h4 {font-family:"Lato", sans-serif}
 .mySlides {display:none}
 .w3-tag, .fa {cursor:pointer}
 .w3-tag {height:15px;width:15px;padding:0;margin-top:6px}
-</style>
+
+
+ .vertical-center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 45%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+#unlock-btn {
+  height: 200px;
+  width: 200px;
+  border-radius: 100px;
+  font-size: 28px;
+  font-weight:900;
+ }
+#unlock-btn:hover {
+  background-color: #262926;
+  cursor : pointer;
+  }
+  
+
+        </style>
+
   </head>
   <body>
       <!-- Links (sit on top) -->
-<div class="w3-top">
+<div class="w3-top" >
   <div class="w3-row w3-large w3-light-grey" >
    <div class="w3-col s3 w3-black">
       <?var url = getScriptUrl();?><a href="<?=url?>?page=home" type='Links' class="w3-button w3-block w3-text-white">Home</a>
@@ -36,8 +60,11 @@ html,body,h1,h2,h3,h4 {font-family:"Lato", sans-serif}
     </div>
   </div>
 </div>
-
-
+<div class="vertical-center"  >
+    <button id="unlock-btn" style="background-color:red">UNLOCK</button>
+</div>  
+  
+ 
   <!-- Contact -->
   <div class="w3-center w3-padding-64" id="contact">
     <span class="w3-xlarge w3-bottombar w3-border-dark-grey w3-padding-16">Contact Us</span>
