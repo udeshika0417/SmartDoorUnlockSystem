@@ -1,9 +1,125 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <base target="_top">
+<title>SmartDoorUnlockSystem</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+html,body,h1,h2,h3,h4 {font-family:"Lato", sans-serif}
+.mySlides {display:none}
+.w3-tag, .fa {cursor:pointer}
+.w3-tag {height:15px;width:15px;padding:0;margin-top:6px}
+
+#unlock-btn {
+  height: 200px;
+  width: 200px;
+  border-radius: 100px;
+  font-size: 28px;
+  font-weight:900;
+ }
+#unlock-btn:hover {
+  background-color: #262926;
+  cursor : pointer;
+  }
+
+  .contactForm{
+    margin-top:50px;
+  }
+ 
+        </style>
+
   </head>
   <body>
+      <!-- Links (sit on top) -->
+<div class="w3-top" >
+  <div class="w3-row w3-large w3-light-grey" >
+   <div class="w3-col s3 w3-black">
+      <a href="#home" type='Links' class="w3-button w3-block w3-text-white">Home</a>
+
+    </div>
+    <div id="userHistory" class="w3-col s3">
+      <a href="#history" type='Links' class="w3-button w3-block "></a>
+
+    </div>
+    <div class="w3-col s3">
+      <a href="#about" class="w3-button w3-block">About</a>
+    </div>
+    <div class="w3-col s3">
+      <a href="#contact" class="w3-button w3-block">Contact</a>
+    </div>
+  </div>
+</div>
+ <div class="w3-panel">
+    <h1><b>Smart Door Unlock </b></h1>
     
+  </div>
+  
+   <div class="w3-container">
+    
+            <div class="w3-center"  >
+                <button id="unlock-btn" style="background-color:red">UNLOCK</button>
+              </div>  
+        </div>
+         
+   
+ </div>
+
+ 
+  <!-- Grid -->
+  <div class="w3-row-padding" id="about">
+    <div class="w3-center w3-padding-64">
+      <span class="w3-xlarge w3-bottombar w3-border-dark-grey w3-padding-16">About Us</span>
+   
+<p> <br/><br/>The Faculty of Science University of Peradeniya is one of the leading science faculties in the Sri Lankan university system. The Faculty takes pride in its remarkable contribution bestowed towards national development by promoting education and research in basic and applied sciences.<br/><br/>
+
+Faculty admits around 500 undergraduate students annually and offers several Honours Study Programmes; B.Sc. Honours study programmes in Biology, Biomedical Sciences, Botany, Chemistry, Computer Science, Data Science, Environmental Science, Geology, Mathematics, Microbiology, Molecular Biology & Biotechnology, Physics, Statistics, Zoology, and in Statistics and Operational Research. The Faculty also offers a B.Sc. study programme in Applied Sciences giving the students an option to exit with a B.Sc. Degree at the end on the third year.<br/><br/>
+
+The Faculty consists of 116 well qualified academic staff members out of which 37 members are professors, 53 are senior lecturers and 26 are lecturers. There are 04 academic support staff and 120 non-academic staff to assist the academic programmes offered by the Faculty.</p>
+  </div>
+ 
+  <!-- Contact -->
+  <div class="contactForm">
+  <div class="w3-center w3-padding-64" id="contact">
+    <span class="w3-xlarge w3-bottombar w3-border-dark-grey w3-padding-16">Contact Us</span>
+  </div>
+
+  <form class="w3-container" action="/action_page.php" target="_blank">
+    <div class="w3-section">
+      <label>Name</label>
+      <input class="w3-input w3-border w3-hover-border-black" id="name" style="width:100%;" type="text" name="Name" required>
+    </div>
+    <div class="w3-section">
+      <label>Email</label>
+      <input class="w3-input w3-border w3-hover-border-black" id="email" style="width:100%;" type="text" name="Email" required>
+    </div>
+    <div class="w3-section">
+      <label>Subject</label>
+      <input class="w3-input w3-border w3-hover-border-black" id="subject" style="width:100%;" name="Subject" required>
+    </div>
+    <div class="w3-section">
+      <label>Message</label>
+      <input class="w3-input w3-border w3-hover-border-black" id="message" style="width:100%;" name="Message" required>
+    </div>
+    <button type="submit" id="btn" class="w3-button w3-block w3-black">Send</button>
+  </form>
+  </div>
+</div>
+<footer class="w3-container w3-padding-32 w3-light-grey w3-center">
+  <h4>Footer</h4>
+  <a href="#" class="w3-button w3-black w3-margin"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
+  <div class="w3-xlarge w3-section">
+    <i class="fa fa-facebook-official w3-hover-opacity"></i>
+    <i class="fa fa-instagram w3-hover-opacity"></i>
+    <i class="fa fa-snapchat w3-hover-opacity"></i>
+    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+    <i class="fa fa-twitter w3-hover-opacity"></i>
+    <i class="fa fa-linkedin w3-hover-opacity"></i>
+  </div>
+</footer>
+
   </body>
 </html>
+
