@@ -1,5 +1,5 @@
 // link HTML files
 function doGet() { 
-   return HtmlService.createHtmlOutputFromFile("home");
+   return HtmlService.createHtmlOutputFromFile("user_homePage");
 
 }
