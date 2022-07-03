@@ -119,6 +119,24 @@ The Faculty consists of 116 well qualified academic staff members out of which 3
     <i class="fa fa-linkedin w3-hover-opacity"></i>
   </div>
 </footer>
+<script>
+   document.getElementById("btn").addEventListener("click",doStuff);
+    
+    function doStuff(){
+    
+    var uname=document.getElementById("name").value;
+    var uemail=document.getElementById("email").value;
+    var usubject=document.getElementById("subject").value;
+    var umessage=document.getElementById("message").value;
+    
+    google.script.run.userClicked(uname,uemail,usubject,umessage);
+     var uname=document.getElementById("name").value="";
+     var uemail=document.getElementById("email").value="";
+     var usubject=document.getElementById("subject").value="";
+     var umessage=document.getElementById("message").value="";
+    }
+
+  </script>
 
   </body>
 </html>
