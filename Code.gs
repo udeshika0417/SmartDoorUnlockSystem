@@ -19,3 +19,32 @@ function getScriptUrl() {
 }
 
 
+//search function
+
+  function Searcher() {
+
+  const searchString ='test';
+  const sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+  const searchCol= 2;
+  //const data = sheet.getDataRange().getValues();
+  const range = sheet.getRange(2,searchCol);
+  const data = range.getValues();
+  Logger.log(data);
+  const result = data.findIndex(searchString);
+  Logger.log(result);
+
+  Array.prototype.finder = function(val){
+  if(val =="") return false;
+  const arr = [];
+  for(let i=0;i<this.length; i++){
+
+    if(this[i].toString().indexof(val)>-1){
+arr.push(i);
+
+    }
+  }
+  return arr;
+}
+}
+
+
