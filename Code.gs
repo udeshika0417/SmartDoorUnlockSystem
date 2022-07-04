@@ -1,5 +1,7 @@
 // link HTML files
 function doGet(e) {
+  
+
   Logger.log( Utilities.jsonStringify(e) );
   if (!e.parameter.page) {
     // When no specific page requested, return "home page"
@@ -11,26 +13,13 @@ function doGet(e) {
 
 function getScriptUrl() {
  var url = ScriptApp.getService().getUrl();
- return url; 
+ return url;
+
+ 
 }
 
-//Logging Unlock Data To spreadsheet
-  function unlockLog(user) {
-    try {
-      var user = Session.getActiveUser().getEmail();
-      var url= "https://docs.google.com/spreadsheets/d/1QhnLhOIsIwdAbYL-CvjXbW-nEKg5iu30ZnMSQHR7l28/edit#gid=393886744";
-      var ss = SpreadsheetApp.openByUrl(url);
-      var ws = ss.getSheetByName("unlockHistory");
-    ws.appendRow([user,new Date()]);
-} catch(e){
-  Logger.log(e);
-  return e;
-}
-    
-  }
 
-
-  //search function
+//search function
 
   function Searcher() {
 
@@ -57,6 +46,5 @@ arr.push(i);
   return arr;
 }
 }
-
 
 
