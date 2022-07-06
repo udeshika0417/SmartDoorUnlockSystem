@@ -25,10 +25,10 @@ function getScriptUrl() {
 
   const searchString ='test';
   const sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
-  const searchCol= 2;
+  const searchCol= 3;
   //const data = sheet.getDataRange().getValues();
-  const range = sheet.getRange(2,searchCol);
-  const data = range.getValues();
+  const rangeNew = sheet.getRange(3,searchCol);
+  const data = rangeNew.getValues();
   Logger.log(data);
   const result = data.findIndex(searchString);
   Logger.log(result);
