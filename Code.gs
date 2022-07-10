@@ -25,10 +25,10 @@ function getScriptUrl() {
 
   const searchString ='test';
   const sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
-  const searchCol= 2;
+  const searchCol= 3;
   //const data = sheet.getDataRange().getValues();
-  const range = sheet.getRange(2,searchCol);
-  const data = range.getValues();
+  const rangeNew = sheet.getRange(3,searchCol);
+  const data = rangeNew.getValues();
   Logger.log(data);
   const result = data.findIndex(searchString);
   Logger.log(result);
@@ -45,6 +45,27 @@ arr.push(i);
   }
   return arr;
 }
+}
+
+//HTTP request to API
+function makeHttpPostRequestWithAppsScript() {
+	const url = "*******";
+	const response = UrlFetchApp.fetch(url, {
+		"method": "POST",
+		"headers": {
+			"x-api-key": "****",
+			"cache-control": "no-cache",
+			"Content-Type": "application/x-www-form-urlencoded"
+		},
+		"muteHttpExceptions": true,
+		"followRedirects": true,
+		"validateHttpsCertificates": true,
+		"contentType": "application/x-www-form-urlencoded",
+		"payload": "name=****%20****&title=****%20******"
+	});
+
+	Logger.log("Response code is %s", response.getResponseCode());
+	Logger.log(response.getContentText());
 }
 
 
