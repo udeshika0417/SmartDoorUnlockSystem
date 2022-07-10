@@ -26,3 +26,25 @@ function unlockLog(user) {
     return e;
   }
 }
+
+//HTTP request to API
+function makeHttpPostRequestWithAppsScript() {
+	const url = "*******";
+	const response = UrlFetchApp.fetch(url, {
+		"method": "POST",
+		"headers": {
+			"x-api-key": "****",
+			"cache-control": "no-cache",
+			"Content-Type": "application/x-www-form-urlencoded"
+		},
+		"muteHttpExceptions": true,
+		"followRedirects": true,
+		"validateHttpsCertificates": true,
+		"contentType": "application/x-www-form-urlencoded",
+		"payload": "name=****%20****&title=****%20******"
+	});
+
+	Logger.log("Response code is %s", response.getResponseCode());
+	Logger.log(response.getContentText());
+}
+
