@@ -21,7 +21,7 @@ function getScriptUrl() {
 
 //search function
 
-  function Searcher() {
+  /*function Searcher() {
 
   const searchString ='test';
   const sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
@@ -45,7 +45,40 @@ arr.push(i);
   }
   return arr;
 }
+} */
+
+//search function new  - Hashini
+function doGet(e) {
+  var htmlOutput =  HtmlService.createTemplateFromFile('admin_userHistoryPage');
+  htmlOutput.search='';
+ return htmlOutput.evaluate();
+} 
+
+function doPost(e) {
+  var search =e.parameter.search;
+  var htmlOutput =  HtmlService.createTemplateFromFile('admin_userHistoryPage');
+  htmlOutput.search= search;
+  return htmlOutput.evaluate();
+} 
+
+function getSheetData()  { 
+
+var ss= SpreadsheetApp.getActiveSpreadsheet();
+var dataSheet = ss.getSheetByName('Student');
+ var dataRange = dataSheet.getDataRange();
+ var dataValues = dataRange.getDisplayValues();  
+return dataValues;
 }
+
+function getUrl(){
+  var url =ScriptApp.getService().getUrl();
+  return url;
+   Logger.log(url)
+}
+
+
+
+
 
 //HTTP request to API
 function makeHttpPostRequestWithAppsScript() {
