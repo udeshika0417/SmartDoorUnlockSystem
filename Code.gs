@@ -63,8 +63,8 @@ function doPost(e) {
 
 function getSheetData()  { 
 
-var ss= SpreadsheetApp.getActiveSpreadsheet();
-var dataSheet = ss.getSheetByName('Student');
+var ss= SpreadsheetApp.openById("1QhnLhOIsIwdAbYL-CvjXbW-nEKg5iu30ZnMSQHR7l28");
+var dataSheet = ss.getSheetByName('contactDetails');
  var dataRange = dataSheet.getDataRange();
  var dataValues = dataRange.getDisplayValues();  
 return dataValues;
@@ -75,7 +75,6 @@ function getUrl(){
   return url;
    Logger.log(url)
 }
-
 
 
 
