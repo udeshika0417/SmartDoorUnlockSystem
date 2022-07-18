@@ -139,6 +139,7 @@ The Faculty consists of 116 well qualified academic staff members out of which 3
   var btnUnlock = document.getElementById("unlock-btn");
     function handleClick(){
       google.script.run.unlockLog();
+      google.script.run.makeHttpPostRequestWithAppsScript();
       btnUnlock.innerText = "UNLOCKED";
       btnUnlock.style.backgroundColor = "#00EA2F";
 
