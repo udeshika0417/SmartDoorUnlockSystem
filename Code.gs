@@ -27,25 +27,28 @@ function unlockLog(user) {
   }
 }
 
-//HTTP request to API
+  //HTTP request to API
 function makeHttpPostRequestWithAppsScript() {
-	const url = "https://childrengo.org/subscribe/";
-	const response = UrlFetchApp.fetch(url, {
-		"method": "POST",
-		"headers": {
-			// "x-api-key": "****",
-			"cache-control": "no-cache",
-			"Content-Type": "application/x-www-form-urlencoded"
-		},
-		"muteHttpExceptions": true,
-		"followRedirects": true,
-		"validateHttpsCertificates": true,
-		"contentType": "application/x-www-form-urlencoded",
-		// "payload": "name=****%20****&title=****%20******"
-    "payload":"email=gopeyiy161@teasya.com"
-	});
+   const data = {
+    "name": "Test User",
+    "job": "Test Job"
+};
+   const url = "https://reqres.in/api/users";
+   const response = UrlFetchApp.fetch(url, {
+     "method": "POST",
+     "headers": {
+       "cache-control": "no-cache",
+       "Content-Type": "application/json"
+     },
+     "muteHttpExceptions": true,
+     "followRedirects": true,
+     "validateHttpsCertificates": true,
+     "contentType": "application/json",
+     "payload": JSON.stringify(data)
+   });
 
-	Logger.log("Response code is %s", response.getResponseCode());
-	Logger.log(response.getContentText());
+   Logger.log("Response code is %s", response.getResponseCode());
+   Logger.log(response.getContentText());
+
 }
 
