@@ -5,7 +5,9 @@ function doGet(e) {
   Logger.log( Utilities.jsonStringify(e) );
   if (!e.parameter.page) {
     // When no specific page requested, return "home page"
-    return HtmlService.createTemplateFromFile('admin_homePage').evaluate();
+    var htmlOutput =  HtmlService.createTemplateFromFile('admin_userHistoryPage');
+     htmlOutput.search='';
+      return htmlOutput.evaluate();
   }
   // else, use page parameter to pick an html file from the script
   return HtmlService.createTemplateFromFile(e.parameter['page']).evaluate();
@@ -48,11 +50,11 @@ arr.push(i);
 } */
 
 //search function new  - Hashini
-function doGet(e) {
-  var htmlOutput =  HtmlService.createTemplateFromFile('admin_userHistoryPage');
-  htmlOutput.search='';
- return htmlOutput.evaluate();
-} 
+// function doGet(e) {
+//   var htmlOutput =  HtmlService.createTemplateFromFile('admin_userHistoryPage');
+//   htmlOutput.search='';
+//  return htmlOutput.evaluate();
+// } 
 
 function doPost(e) {
   var search =e.parameter.search;
@@ -78,26 +80,32 @@ function getUrl(){
 
 
 
-
-//HTTP request to API
+  //HTTP request to API
 function makeHttpPostRequestWithAppsScript() {
-	const url = "*******";
-	const response = UrlFetchApp.fetch(url, {
-		"method": "POST",
-		"headers": {
-			"x-api-key": "****",
-			"cache-control": "no-cache",
-			"Content-Type": "application/x-www-form-urlencoded"
-		},
-		"muteHttpExceptions": true,
-		"followRedirects": true,
-		"validateHttpsCertificates": true,
-		"contentType": "application/x-www-form-urlencoded",
-		"payload": "name=****%20****&title=****%20******"
-	});
+   const data = {
+    "name": "Test User",
+    "job": "Test Job"
+};
+   const url = "https://reqres.in/api/users";
+   const response = UrlFetchApp.fetch(url, {
+     "method": "POST",
+     "headers": {
+       "cache-control": "no-cache",
+       "Content-Type": "application/json"
+     },
+     "muteHttpExceptions": true,
+     "followRedirects": true,
+     "validateHttpsCertificates": true,
+     "contentType": "application/json",
+     "payload": JSON.stringify(data)
+   });
 
-	Logger.log("Response code is %s", response.getResponseCode());
-	Logger.log(response.getContentText());
+   Logger.log("Response code is %s", response.getResponseCode());
+   Logger.log(response.getContentText());
+
 }
+
+
+
 
 
