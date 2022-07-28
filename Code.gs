@@ -5,7 +5,7 @@ function doGet(e) {
   Logger.log( Utilities.jsonStringify(e) );
   if (!e.parameter.page) {
     // When no specific page requested, return "home page"
-    var htmlOutput =  HtmlService.createTemplateFromFile('admin_userHistoryPage');
+    var htmlOutput =  HtmlService.createTemplateFromFile('admin_homePage');
      htmlOutput.search='';
       return htmlOutput.evaluate();
   }
