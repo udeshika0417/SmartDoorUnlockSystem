@@ -275,6 +275,17 @@ section {
   <div class="w3-panel">
     <h1></br><b>Smart Door Unlock User Contact Details</b></h1>   
   </div>
+  <div class="container-fluid " align="center">
+         
+      <br>
+      
+        <table id="data-table" class="table table-hover table-bordered">
+          <!-- TABLE DATA IS ADDED BY THE showData() JAVASCRIPT FUNCTION ABOVE -->
+        </table>
+      
+    <br>
+
+  </div>
     <!-- Site footer -->
 
 <footer class="footer-distributed ">
@@ -318,6 +329,28 @@ section {
 			</div>
 
 		</footer>
+    <script>
+  
+  google.script.run.withSuccessHandler(showData).getData();
+ 
+  //THIS FUNCTION GENERATE THE DATA TABLE FROM THE DATA ARRAY
+  function showData(dataArray){
+    $(document).ready(function(){
+      $('#data-table').DataTable({
+        data: dataArray,
+        //CHANGE THE TABLE HEADINGS BELOW TO MATCH WITH YOUR SELECTED DATA RANGE
+        columns: [
+          {"title":"Name"},
+          {"title":"Email"},
+          {"title":"Subject"},
+          {"title":"Message"},
+          {"title":"Date and Time"},
+
+        ]
+      });
+    });
+  }
+</script>
   
    
   </body>
