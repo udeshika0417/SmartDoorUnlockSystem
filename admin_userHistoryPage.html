@@ -13,6 +13,13 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Prompt">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.23/js/dataTables.bootstrap4.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/dataTables.bootstrap4.min.css">
+
+
  <style>
 html,body,h1,h2,h3,h4 {font-family:"Lato", sans-serif}
 .mySlides {display:none}
@@ -270,6 +277,7 @@ section {
     </div>
   </div>
 </div>
+<!--
   <div class="w3-panel">
     <h1></br><b>Smart Door Unlock User History</b></h1>   
   </div>
@@ -288,6 +296,23 @@ section {
 
     </div>
   </div>
+--> 
+
+
+
+<div class="container-fluid " align="center">
+         
+      <br>
+      
+        <table id="data-table" class="table table-hover table-bordered">
+          <!-- TABLE DATA IS ADDED BY THE showData() JAVASCRIPT FUNCTION ABOVE -->
+        </table>
+      
+    <br>
+
+  </div>
+
+
       <!-- Site footer -->
 
 <footer class="footer-distributed ">
@@ -332,7 +357,7 @@ section {
 
 		</footer>
 
-    <script>
+   <!-- <script>
         var tableData = []
         window.onload = () => {
             $('#tableId').show()
@@ -380,7 +405,33 @@ section {
         function createTable(data) {
             tableData = data
         }
-    </script>
+    </script> -->
+
+
+ <script>
+  /*
+  *THIS FUNCTION CALLS THE getData() FUNCTION IN THE Code.gs FILE, 
+  *AND PASS RETURNED DATA TO showData() FUNCTION
+  */
+  google.script.run.withSuccessHandler(showData).getDataNew();
+ 
+  //THIS FUNCTION GENERATE THE DATA TABLE FROM THE DATA ARRAY
+  function showData(dataArray){
+    $(document).ready(function(){
+      $('#data-table').DataTable({
+        data: dataArray,
+        //CHANGE THE TABLE HEADINGS BELOW TO MATCH WITH YOUR SELECTED DATA RANGE
+        columns: [
+          
+          {"title":"Email"},
+          {"title":"Date and Time"},
+
+        ]
+      });
+    });
+  }
+</script>
+
 </body>
 
 </html>
