@@ -9,8 +9,6 @@ function userClicked(name,email,subject,message){
   var ws = ss.getSheetByName("contactDetails");
   
   ws.appendRow([name,email,subject,message,new Date()]);
-  
-
 }
 
 //Logging Unlock Data To spreadsheet
