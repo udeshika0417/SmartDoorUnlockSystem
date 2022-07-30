@@ -1,5 +1,7 @@
 // link HTML files
 function doGet(e) {
+  
+
   Logger.log( Utilities.jsonStringify(e) );
   if (!e.parameter.page) {
     // When no specific page requested, return "home page"
@@ -14,7 +16,64 @@ function doGet(e) {
 function getScriptUrl() {
  var url = ScriptApp.getService().getUrl();
  return url;
+
+ 
 }
+
+
+//search function
+
+  /*function Searcher() {
+
+  const searchString ='test';
+  const sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+  const searchCol= 3;
+  //const data = sheet.getDataRange().getValues();
+  const rangeNew = sheet.getRange(3,searchCol);
+  const data = rangeNew.getValues();
+  Logger.log(data);
+  const result = data.findIndex(searchString);
+  Logger.log(result);
+
+  Array.prototype.finder = function(val){
+  if(val =="") return false;
+  const arr = [];
+  for(let i=0;i<this.length; i++){
+
+    if(this[i].toString().indexof(val)>-1){
+arr.push(i);
+
+    }
+  }
+  return arr;
+}
+} */
+
+//search function new  - Hashini
+// function doGet(e) {
+//   var htmlOutput =  HtmlService.createTemplateFromFile('admin_userHistoryPage');
+//   htmlOutput.search='';
+//  return htmlOutput.evaluate();
+// } 
+
+
+
+// search for admin_userHistory
+function getDataNew()  { 
+
+var ss= SpreadsheetApp.openById("1QhnLhOIsIwdAbYL-CvjXbW-nEKg5iu30ZnMSQHR7l28");
+var dataSheet = ss.getSheetByName('unlockHistory');
+ var dataRange = dataSheet.getDataRange();
+ var dataValues = dataRange.getDisplayValues();  
+return dataValues;
+}
+
+function doPost(e) {
+  var search =e.parameter.search;
+  var htmlOutput =  HtmlService.createTemplateFromFile('admin_userHistoryPage');
+  htmlOutput.search= search;
+  return htmlOutput.evaluate();
+} 
 
 function getSheetData()  { 
 
@@ -56,15 +115,6 @@ function makeHttpPostRequestWithAppsScript() {
    Logger.log("Response code is %s", response.getResponseCode());
    Logger.log(response.getContentText());
 
-}
-//get Data for admin_userContactPage
-function getData()  { 
-
-var ss= SpreadsheetApp.openById("1QhnLhOIsIwdAbYL-CvjXbW-nEKg5iu30ZnMSQHR7l28");
-var dataSheet = ss.getSheetByName('contactDetails');
- var dataRange = dataSheet.getDataRange();
- var dataValues = dataRange.getDisplayValues();  
-return dataValues;
 }
 
 
