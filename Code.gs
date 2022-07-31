@@ -1,13 +1,10 @@
+
 // link HTML files
 function doGet(e) {
-  
-
   Logger.log( Utilities.jsonStringify(e) );
   if (!e.parameter.page) {
     // When no specific page requested, return "home page"
-    var htmlOutput =  HtmlService.createTemplateFromFile('admin_homePage');
-     htmlOutput.search='';
-      return htmlOutput.evaluate();
+    return HtmlService.createTemplateFromFile('admin_homePage').evaluate();
   }
   // else, use page parameter to pick an html file from the script
   return HtmlService.createTemplateFromFile(e.parameter['page']).evaluate();
@@ -19,6 +16,45 @@ function getScriptUrl() {
 
  
 }
+//get Data for admin_userContactPage
+function getData()  { 
+
+var ss= SpreadsheetApp.openById("1QhnLhOIsIwdAbYL-CvjXbW-nEKg5iu30ZnMSQHR7l28");
+var dataSheet = ss.getSheetByName('contactDetails');
+ var dataRange = dataSheet.getDataRange();
+ var dataValues = dataRange.getDisplayValues();  
+return dataValues;
+}
+
+
+//Logging Unlock Data To spreadsheet
+  function unlockLog(user) {
+    try {
+      var user = Session.getActiveUser().getEmail();
+      var url= "https://docs.google.com/spreadsheets/d/1QhnLhOIsIwdAbYL-CvjXbW-nEKg5iu30ZnMSQHR7l28/edit#gid=393886744";
+      var ss = SpreadsheetApp.openByUrl(url);
+      var ws = ss.getSheetByName("unlockHistory");
+    ws.appendRow([user,new Date()]);
+    Logger.log("button click works")
+} catch(e){
+  Logger.log(e);
+  return e;
+}
+    
+  }
+
+//   // search for admin_userHistory
+// function getDataNew()  { 
+
+// var ss= SpreadsheetApp.openById("1QhnLhOIsIwdAbYL-CvjXbW-nEKg5iu30ZnMSQHR7l28");
+// var dataSheet = ss.getSheetByName('unlockHistory');
+//  var dataRange = dataSheet.getDataRange();
+//  var dataValues = dataRange.getDisplayValues();  
+// return dataValues;
+// }
+
+
+
 
 
 //search function
@@ -56,25 +92,6 @@ arr.push(i);
 //  return htmlOutput.evaluate();
 // } 
 
-
-
-// search for admin_userHistory
-function getDataNew()  { 
-
-var ss= SpreadsheetApp.openById("1QhnLhOIsIwdAbYL-CvjXbW-nEKg5iu30ZnMSQHR7l28");
-var dataSheet = ss.getSheetByName('unlockHistory');
- var dataRange = dataSheet.getDataRange();
- var dataValues = dataRange.getDisplayValues();  
-return dataValues;
-}
-
-function doPost(e) {
-  var search =e.parameter.search;
-  var htmlOutput =  HtmlService.createTemplateFromFile('admin_userHistoryPage');
-  htmlOutput.search= search;
-  return htmlOutput.evaluate();
-} 
-
 function getSheetData()  { 
 
 var ss= SpreadsheetApp.openById("1QhnLhOIsIwdAbYL-CvjXbW-nEKg5iu30ZnMSQHR7l28");
@@ -84,15 +101,16 @@ var dataSheet = ss.getSheetByName('contactDetails');
 return dataValues;
 }
 
-function getUrl(){
-  var url =ScriptApp.getService().getUrl();
-  return url;
-   Logger.log(url)
-}
+// function getUrl(){
+//   var url =ScriptApp.getService().getUrl();
+//   return url;
+//    Logger.log(url)
+// }
 
 
 
-  //HTTP request to API
+
+ //HTTP request to API
 function makeHttpPostRequestWithAppsScript() {
    const data = {
     "name": "Test User",
@@ -116,8 +134,6 @@ function makeHttpPostRequestWithAppsScript() {
    Logger.log(response.getContentText());
 
 }
-
-
 
 
 
