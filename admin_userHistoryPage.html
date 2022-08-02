@@ -277,27 +277,6 @@ section {
     </div>
   </div>
 </div>
-<!--
-  <div class="w3-panel">
-    <h1></br><b>Smart Door Unlock User History</b></h1>   
-  </div>
-  <div class="container-fluid " align="center" style="height:300px;">
- <div class="container-fluid" align="center">
-        <?var url = getUrl();?>
-        <div>
-            <label>Type Your SRN</label><br>
-            <input type="text" name="search" id="search" value="" />
-            <button id="searchButton">Search</button>
-        </div><br>
-
-        <table class = "table table-hover" id="tableId" border="1" cellpadding="5px">
-        </table>
-   
-
-    </div>
-  </div>
---> 
-
 
 
 <div class="container-fluid " align="center">
@@ -357,56 +336,7 @@ section {
 
 		</footer>
 
-   <!-- <script>
-        var tableData = []
-        window.onload = () => {
-            $('#tableId').show()
-            google.script.run.withSuccessHandler(createTable).getSheetData()
-        }
-        
-        $('#searchButton').click(() => {
-
-          $('#tableId').show()
-          $('#tableId tr').remove()
-          let table = document.getElementById("tableId")
-          let search = $("#search").val()
-          if(search == ""){
-
-            $('#tableId').hide()
-          }
-
-        
-     
-            tableData.forEach((rowArray, i) => {
-                if (i == 0) {
-                    $('table').append(`<tr  class="table-info" ></tr>`)
-                    rowArray.forEach((col,j) => {
-                        if(j<rowArray.length-1){
-                            $('table tr').append(`<th>${col}</th>`)
-                        }
-                        
-                    })
-                } else {
-                    var stringSearch = rowArray.toString().toLowerCase();
-                    if (stringSearch.indexOf(search.toLowerCase()) != -1) {
-                        $('table').append(`<tr id="TR${rowArray[0]}"></tr>`)
-                        rowArray.forEach((col, j) => {
-                            if (j < rowArray.length - 2) {
-                                $('#TR' + rowArray[0]).append(`<td>${col}</td>`)
-                            } else if (j != rowArray.length - 1) {
-                                $('#TR' + rowArray[0]).append(`<td><a href=${rowArray[j + 1]}>${col}</a></td>`)
-                            }
-                        })
-                    }
-                }
-            })
-        })
-      
-        function createTable(data) {
-            tableData = data
-        }
-    </script> -->
-
+   
 
  <script>
   /*
